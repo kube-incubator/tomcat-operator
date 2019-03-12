@@ -1,6 +1,7 @@
 package v1alpha1
 
 import (
+	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -13,6 +14,24 @@ type TomcatSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
 	// Add custom validation using kubebuilder tags: https://book.kubebuilder.io/beyond_basics/generating_crd.html
+
+	// Number of desired tomcat pods. This is a pointer to distinguish between
+	// explicit zero and not specified. Defaults to 1.
+	// +optional
+	Replicas *int32 `json:"replicas,omitempty"`
+
+	// Tomcat runtime image to use. Defaults to tomcat:latest.
+	// +optional
+	Image string `json:"image,omitempty"`
+
+	// ImagePullPolicy overrides TomcatRuntime spec.imagePullPolicy
+	// +kubebuilder:validation:Enum=Always,IfNotPresent,Never
+	// +optional
+	ImagePullPolicy corev1.PullPolicy `json:"imagePullPolicy,omitempty"`
+
+	// Port represents the open port for tomcat service. Defaults to 80.
+	// +optional
+	ServicePort *int32 `json:"servicePort,omitempty"`
 }
 
 // TomcatStatus defines the observed state of Tomcat
@@ -21,6 +40,11 @@ type TomcatStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "operator-sdk generate k8s" to regenerate code after modifying this file
 	// Add custom validation using kubebuilder tags: https://book.kubebuilder.io/beyond_basics/generating_crd.html
+
+	// Total number of non-terminated pods targeted by tomcat deployment
+	// This is copied over from the deployment object
+	// +optional
+	Replicas int32 `json:"replicas,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
