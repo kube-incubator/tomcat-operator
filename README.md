@@ -31,9 +31,9 @@ tomcat   50m
 
 $ kubectl get pod
 NAME                               READY   STATUS    RESTARTS   AGE
-tomcat-669459654b-qcsr8            1/1     Running   1          51m
-tomcat-669459654b-wzclc            1/1     Running   1          51m
-tomcat-operator-65bd87b969-mlrpr   1/1     Running   3          51m
+tomcat-669459654b-qcsr8            1/1     Running   0          51m
+tomcat-669459654b-wzclc            1/1     Running   0          51m
+tomcat-operator-65bd87b969-mlrpr   1/1     Running   0          51m
 
 $ kubectl get svc
 NAME              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
