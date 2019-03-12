@@ -1,0 +1,11 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tomcat-operator
+subjects:
+- kind: ServiceAccount
+  name: tomcat-operator
+roleRef:
+  kind: Role
+  name: tomcat-operator
+  apiGroup: rbac.authorization.k8s.io
