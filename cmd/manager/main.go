@@ -7,8 +7,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/kube-incubator/tomcat-operator/tomcat-operator/pkg/apis"
-	"github.com/kube-incubator/tomcat-operator/tomcat-operator/pkg/controller"
+	"github.com/kube-incubator/tomcat-operator/pkg/apis"
+	"github.com/kube-incubator/tomcat-operator/pkg/controller"
 
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	"github.com/operator-framework/operator-sdk/pkg/leader"

@@ -5,7 +5,8 @@ import (
 )
 
 const (
-	tomcatHTTPPort = 8080
+	// TomcatHTTPPort is the default open port of tomcat container
+	TomcatHTTPPort = 8080
 )
 
 // TomcatServerPodTemplateSpec generates a pod template spec suitable for use in Tomcat deployment
@@ -20,7 +21,7 @@ func (tomcat *Tomcat) TomcatServerPodTemplateSpec() (out corev1.PodTemplateSpec)
 			Ports: []corev1.ContainerPort{
 				{
 					Name:          "http",
-					ContainerPort: int32(tomcatHTTPPort),
+					ContainerPort: int32(TomcatHTTPPort),
 				},
 			},
 		},
