@@ -16,10 +16,11 @@ spec:
       containers:
         - name: tomcat-operator
           # Replace this with the built image name
-          image: REPLACE_IMAGE
+          # image: REPLACE_IMAGE
+          image: shidaqiu/tomcat-operator:v0.1
           command:
           - tomcat-operator
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: WATCH_NAMESPACE
               valueFrom:

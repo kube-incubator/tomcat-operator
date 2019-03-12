@@ -1,7 +1,8 @@
 apiVersion: tomcat.apache.org/v1alpha1
 kind: Tomcat
 metadata:
-  name: example-tomcat
+  name: tomcat
 spec:
-  # Add fields here
-  size: 3
+  replicas: 2
+  image: tomcat:latest
+  imagePullPolicy: IfNotPresent
