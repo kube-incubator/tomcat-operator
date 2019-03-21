@@ -32,6 +32,16 @@ type TomcatSpec struct {
 	// Port represents the open port for tomcat service. Defaults to 80.
 	// +optional
 	ServicePort *int32 `json:"servicePort,omitempty"`
+
+	// WebArchiveImage is the init image that provides the source war package.
+	// Default to ananwaresystems/webarchive:1.0
+	// +optional
+	WebArchiveImage string `json:"webArchiveImage,omitempty"`
+
+	// DeployDirectory must match the tomcat setup directory of your Tomcat Image.
+	// Default to /usr/local/tomcat/webapps
+	// +optional
+	DeployDirectory string `json:"deployDirectory,omitempty"`
 }
 
 // TomcatStatus defines the observed state of Tomcat

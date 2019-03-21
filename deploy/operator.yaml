@@ -17,7 +17,7 @@ spec:
         - name: tomcat-operator
           # Replace this with the built image name
           # image: REPLACE_IMAGE
-          image: shidaqiu/tomcat-operator:v0.1
+          image: shidaqiu/tomcat-operator:v0.2
           command:
           - tomcat-operator
           imagePullPolicy: IfNotPresent

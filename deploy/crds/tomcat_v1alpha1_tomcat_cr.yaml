@@ -6,3 +6,5 @@ spec:
   replicas: 2
   image: tomcat:latest
   imagePullPolicy: IfNotPresent
+  webArchiveImage: ananwaresystems/webarchive:1.0
+  deployDirectory: /usr/local/tomcat/webapps
